@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Live Video Stream</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        h1 {
+            margin-bottom: 20px;
+        }
+        #video_feed {
+            width: 640px;
+            height: 480px;
+            border: 2px solid black;
+            margin-bottom: 20px;
+        }
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            text-decoration: none;
+            margin: 10px;
+            border-radius: 5px;
+        }
+        .btn:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <h1>Live Video Stream</h1>
+    <img id="video_feed" src="{{ url_for('video_feed') }}">
+    <br>
+    <a class="btn" href="{{ url_for('export') }}">Export Attendance to Excel</a>
+    <a class="btn" href="{{ url_for('attendance_list') }}">Show Attendance List</a>
+    <br>
+    <div>
+        <h2>Attendance List</h2>
+        <pre>{{ attendance_list }}</pre>
+    </div>
+</body>
+</html>
